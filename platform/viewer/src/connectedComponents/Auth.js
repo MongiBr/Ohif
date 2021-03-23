@@ -38,8 +38,8 @@ class Auth extends Component {
              <div className="hr"></div>
              <div className="align">
              <div classeName="create-account">
-             <a>Create an account</a>
-              <a>Forgot password?</a>
+             <a onClick={() => this.nextPath('/auth/signup')}>Create an account</a>
+              <a onClick={() => this.nextPath('/auth/forgot')}>Forgot password?</a>
              </div>
              <div classeName="create-account">
 

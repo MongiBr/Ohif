@@ -41,6 +41,20 @@ const Auth = asyncComponent(() =>
     )
 );
 
+const AuthSignup = asyncComponent(() =>
+    import (
+        /* webpackChunkName: "ViewerLocalFileData" */
+        '../connectedComponents/AuthSignup.js'
+    )
+);
+
+const AuthForgot = asyncComponent(() =>
+    import (
+        /* webpackChunkName: "ViewerLocalFileData" */
+        '../connectedComponents/AuthForgot.js'
+    )
+);
+
 const reload = () => window.location.reload();
 
 const ROUTES_DEF = {
@@ -52,6 +66,14 @@ const ROUTES_DEF = {
         auth: {
             path: '/',
             component: Auth,
+        },
+        authsignup: {
+            path: '/auth/signup',
+            component: AuthSignup,
+        },
+        authForgot: {
+            path: '/auth/forgot',
+            component: AuthForgot,
         },
         standaloneViewer: {
             path: '/viewer',

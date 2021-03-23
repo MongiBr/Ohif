@@ -6,6 +6,7 @@
 }
 
 .container {
+  background-color: #262ebf;
   height: 100%;
   width: 100%;
   display: flex;
@@ -28,6 +29,34 @@
   box-sizing: border-box;
 }
 
+.card-signup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 650px;
+  width: 396px;
+  border-radius: 8px;
+  padding: 6rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+}
+
+.card-forgot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 350px;
+  width: 396px;
+  border-radius: 8px;
+  padding: 6rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+}
+
 .input-t {
   display: block;
 }
@@ -38,7 +67,7 @@
   box-shadow: 0 0 2px #262ebf;
 }
 
-input {
+.form__field {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.7rem;
@@ -60,6 +89,7 @@ input:focus {
 
 a {
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .hr {
@@ -84,6 +114,14 @@ a {
 .text {
   color: #141b97;
   font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.text-forgot {
+  color: #141b97;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
   padding-bottom: 50px;
@@ -130,7 +168,7 @@ button:hover {
     height: 100%;
     width: 350px;
   }
-  input {
+  .form__field {
     width: 320px;
   }
   button {

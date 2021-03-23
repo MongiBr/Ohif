@@ -13,7 +13,7 @@
 }
 
 .labellingComponent .addLabelButton {
-  color: #000000;
+  color: #262ebf;
   background-color: #20a5d6;
   border: 2px solid #44626f;
   border-radius: 14px;
@@ -122,5 +122,5 @@
   width: 20px;
   height: 20px;
   margin: 13px;
-  fill: black;
+  fill: #262ebf;
 }

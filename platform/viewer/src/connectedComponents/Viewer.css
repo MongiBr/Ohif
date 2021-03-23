@@ -1,0 +1,9 @@
+#viewer {
+  background-color: #262ebf;
+  width: 100%;
+}
+
+.loadingTextDiv {
+  color: var(--text-secondary-color);
+  font-size: 30px;
+}

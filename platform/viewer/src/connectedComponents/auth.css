@@ -1,0 +1,142 @@
+.card-items {
+  display: flex;
+  justify-content: center;
+  -ms-flex-pack: center;
+  align-items: center;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  -ms-flex-pack: center;
+  align-items: center;
+}
+
+.card-login {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 400px;
+  width: 396px;
+  border-radius: 8px;
+  padding: 6rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+}
+
+.input-t {
+  display: block;
+}
+
+.form__field:focus {
+  outline: none;
+  border: 1px solid #262ebf;
+  box-shadow: 0 0 2px #262ebf;
+}
+
+input {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+  border: 1px solid #bebebe;
+  width: 332px;
+}
+
+input:focus {
+  border: 1px solid #262ebf;
+}
+
+.create-account {
+  text-align: center;
+  font-family: inherit;
+}
+
+a {
+  margin-right: 15px;
+}
+
+.hr {
+  align-items: center;
+  border-bottom: 1px solid #dadde1;
+  display: flex;
+  margin: 20px 16px;
+  text-align: center;
+  width: 332px;
+}
+
+.align {
+  display: block;
+  margin-top: 20px;
+}
+
+.block {
+  display: block;
+  text-align: center;
+}
+
+.text {
+  color: #141b97;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+button {
+  width: 332px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #262ebf;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #141b97;
+  border: 2px solid #fff;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+.top-login {
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.footer-login {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.link {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-login {
+    height: 100%;
+    width: 350px;
+  }
+  input {
+    width: 320px;
+  }
+  button {
+    width: 320px;
+  }
+  .hr {
+    width: 320px;
+  }
+}

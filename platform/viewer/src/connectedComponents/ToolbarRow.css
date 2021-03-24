@@ -9,9 +9,10 @@
     width: 100%;
     display: flex;
     align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #262EBF;
 }
 
 ToolbarRow.expanded {
     height: calc(var(--toolbar-height) + var(--toolbar-drawer-height));
 }
-

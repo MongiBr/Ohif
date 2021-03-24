@@ -226,24 +226,9 @@ function StudyListRoute(props) {
           </UserManagerContext.Consumer>
         )}
       </WhiteLabelingContext.Consumer>
-      <div className="study-list-header">
-        <div className="header">
-          <h1 style={{ fontWeight: 300, fontSize: '22px' }}>
-            {t('StudyList')}
-          </h1>
-        </div>
-        <div className="actions">
-          {studyListFunctionsEnabled && healthCareApiButtons}
-          {studyListFunctionsEnabled && (
-            <PageToolbar
-              onImport={() => setActiveModalId('DicomFilesUploader')}
-            />
-          )}
-          <span className="study-count">{studies.length}</span>
-        </div>
-      </div>
 
-      <div className="table-head-background" />
+
+
       <div className="study-list-container">
         {/* STUDY LIST OR DROP ZONE? */}
         <StudyList
@@ -258,6 +243,7 @@ function StudyListRoute(props) {
             history.push(viewerPath);
           }}
           // Table Header
+          long={studies.length}
           sort={sort}
           onSort={handleSort}
           filterValues={filterValues}

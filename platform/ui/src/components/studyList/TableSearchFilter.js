@@ -82,7 +82,7 @@ function TableSearchFilter(props) {
         const sortIcon = isSortField ? sortIconForSortField : sortIcons[0];
 
         return (
-          <th key={`${fieldName}-${i}`}>
+          <div key={`${fieldName}-${i}`} style={{display:'inline-block'}}>
             <label
               htmlFor={`filter-${fieldName}`}
               onClick={() => onSort(fieldName)}
@@ -123,7 +123,7 @@ function TableSearchFilter(props) {
                 isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
               />
             )}
-          </th>
+          </div>
         );
       })
     : null;

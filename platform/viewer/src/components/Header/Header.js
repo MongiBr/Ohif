@@ -64,31 +64,14 @@ function Header(props) {
     <>
       <div className="notification-bar">{t('INVESTIGATIONAL USE ONLY')}</div>
       <div
-        className={classNames('entry-header', { 'header-big': useLargeLogo })}
+        className={classNames('entry-heade')}
       >
         <div className="header-left-box">
-          {location && location.studyLink && (
-            <Link
-              to={location.studyLink}
-              className="header-btn header-viewerLink"
-            >
-              {t('Back to Viewer')}
-            </Link>
-          )}
 
-          {children}
+          <div className='logo'>
+          <label>STRIVERS</label>
+</div>
 
-          {hasLink && (
-            <Link
-              className="header-btn header-studyListLinkSection"
-              to={{
-                pathname: linkPath,
-                state: { studyLink: location.pathname },
-              }}
-            >
-              {t(linkText)}
-            </Link>
-          )}
         </div>
 
         <div className="header-menu">

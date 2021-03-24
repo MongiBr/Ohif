@@ -30,6 +30,7 @@ function StudyList(props) {
     isLoading,
     hasError,
     studies,
+    long,
     sort,
     onSort: handleSort,
     filterValues,
@@ -120,17 +121,22 @@ function StudyList(props) {
     .reduce((prev, next) => prev + next);
 
   return translationsAreReady ? (
-    <table className="table table--striped table--hoverable">
-      <colgroup>
+    <div className="table table--striped table--hoverable">
+      <div>
         {tableMeta.map((field, i) => {
           const size = field.size;
           const percentWidth = (size / totalSize) * 100.0;
 
-          return <col key={i} style={{ width: `${percentWidth}%` }} />;
+          return <div key={i} style={{ width: `${percentWidth}%` }} />;
         })}
-      </colgroup>
-      <thead className="table-head">
-        <tr className="filters">
+      </div>
+      <div className=" table-head">
+        <div className="align">
+          <div className="long">
+
+          <label >{long} StudyLists </label>
+          </div>
+          <div>
           <TableSearchFilter
             meta={tableMeta}
             values={filterValues}
@@ -140,9 +146,10 @@ function StudyList(props) {
             sortDirection={sort.direction}
             studyListDateFilterNumDays={studyListDateFilterNumDays}
           />
-        </tr>
-      </thead>
-      <tbody className="table-body" data-cy="study-list-results">
+          </div>
+        </div>
+      </div>
+      <div className="card" data-cy="study-list-results">
         {/* I'm not in love with this approach, but it's the quickest way for now
          *
          * - Display different content based on loading, empty, results state
@@ -152,28 +159,28 @@ function StudyList(props) {
          */}
         {/* LOADING */}
         {isLoading && (
-          <tr className="no-hover">
-            <td colSpan={tableMeta.length}>
+          <div className="no-hover">
+            <div colSpan={tableMeta.length}>
               <StudyListLoadingText />
-            </td>
-          </tr>
+            </div>
+          </div>
         )}
         {!isLoading && hasError && (
-          <tr className="no-hover">
-            <td colSpan={tableMeta.length}>
+          <div className="no-hover">
+            <div colSpan={tableMeta.length}>
               <div className="notFound">
                 {t('There was an error fetching studies')}
               </div>
-            </td>
-          </tr>
+            </div>
+          </div>
         )}
         {/* EMPTY */}
         {!isLoading && !studies.length && (
-          <tr className="no-hover">
-            <td colSpan={tableMeta.length}>
+          <div className="no-hover">
+            <div colSpan={tableMeta.length}>
               <div className="notFound">{t('No matching results')}</div>
-            </td>
-          </tr>
+            </div>
+          </div>
         )}
         {!isLoading &&
           studies.map((study, index) => (
@@ -190,8 +197,8 @@ function StudyList(props) {
               displaySize={displaySize}
             />
           ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   ) : null;
 }
 
@@ -244,89 +251,63 @@ function TableRow(props) {
   const { t } = useTranslation('StudyList');
 
   const largeRowTemplate = (
-    <tr
+    <div
       onClick={() => handleClick(StudyInstanceUID)}
       className={classNames({ active: isHighlighted })}
+
     >
-      <td className={classNames({ 'empty-value': !PatientName })}>
+      <div className={classNames({ 'empty-value': !PatientName })}>
         {PatientName || `(${t('Empty')})`}
-      </td>
-      <td>{PatientID}</td>
-      <td>{AccessionNumber}</td>
-      <td>{StudyDate}</td>
-      <td className={classNames({ 'empty-value': !modalities })}>
+      </div>
+      <div>{PatientID}</div>
+      <div>{AccessionNumber}</div>
+      <div>{StudyDate}</div>
+      <div className={classNames({ 'empty-value': !modalities })}>
         {modalities || `(${t('Empty')})`}
-      </td>
-      <td>{StudyDescription}</td>
-    </tr>
+      </div>
+      <div>{StudyDescription}</div>
+    </div>
   );
 
   const mediumRowTemplate = (
-    <tr
+    <div
       onClick={() => handleClick(StudyInstanceUID)}
-      className={classNames({ active: isHighlighted })}
+      className="card-body"
+
     >
-      <td className={classNames({ 'empty-value': !PatientName })}>
+      <div >
+        <label>Patient Name :</label>
         {PatientName || `(${t('Empty')})`}
-        <div style={{ color: '#60656f' }}>{PatientID}</div>
-      </td>
-      <td>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+
+        <div><label>Patient ID :</label>{PatientID}</div>
+      </div>
+      <div>
+
+        <div>
           {/* DESCRIPTION */}
-          <div
-            className="hide-xs"
-            style={{
-              whiteSpace: 'pre-wrap',
-              flexGrow: 1,
-            }}
-          >
-            {StudyDescription}
+          <div className='hr'></div>
+          <div className="description">
+
+
+            <img src="https://www.imageriemedicalemc3.fr/wp-content/uploads/2017/09/crane-1-300x297.jpg" height='130' width="140"/>
           </div>
 
           {/* MODALITY & ACCESSION */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              maxWidth: '80px',
-              width: '80px',
-            }}
-          >
-            <div
-              className={classNames({
-                modalities: modalities,
-                'empty-value': !modalities,
-              })}
-              aria-label={modalities}
-              title={modalities}
-            >
-              {modalities || `(${t('Empty')})`}
-            </div>
-            <div
-              style={{
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-              }}
-              aria-label={AccessionNumber}
-              title={AccessionNumber}
-            >
-              {AccessionNumber}
-            </div>
-          </div>
+
         </div>
-      </td>
+      </div>
+
       {/* DATE */}
-      <td style={{ textAlign: 'center' }}>{StudyDate}</td>
-    </tr>
+      <div className="date"><div className='hr'></div> <label >Date :</label>{StudyDate}</div>
+    </div>
   );
 
   const smallRowTemplate = (
-    <tr
+    <div
       onClick={() => handleClick(StudyInstanceUID)}
       className={classNames({ active: isHighlighted })}
     >
-      <td style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', overflow: 'hidden' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* NAME AND ID */}
           <div
@@ -373,8 +354,8 @@ function TableRow(props) {
             <div>{StudyDate}</div>
           </div>
         </div>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 
   const rowTemplate = getContentFromUseMediaValue(

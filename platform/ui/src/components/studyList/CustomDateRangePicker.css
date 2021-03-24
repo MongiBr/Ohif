@@ -1,6 +1,7 @@
 /* NOTE: the order of these styles DO matter */
 
 /* Will edit everything selected including everything between a range of dates */
+
 .CalendarDay__selected_span {
   background: var(--datePicker-picker-background);
   color: var(--datePicker-picker-text);
@@ -8,6 +9,7 @@
 }
 
 /* Will edit selected date or the endpoints of a range of dates */
+
 .CalendarDay__selected {
   background: var(--datePicker-picker-background);
   color: var(--datePicker-picker-text);
@@ -15,8 +17,8 @@
 }
 
 /* Will edit when hovered over. _span style also has this property */
-.CalendarDay__selected:hover,
-.CalendarDay__default:hover {
+
+.CalendarDay__selected:hover, .CalendarDay__default:hover {
   background: var(--datePicker-picker-background);
   color: var(--datePicker-picker-text);
   border-color: #e4e7e7;
@@ -24,15 +26,17 @@
 
 /* Will edit when the second date (end date) in a range of dates
 is not yet selected. Edits the dates between your mouse and said date */
-.CalendarDay__hovered_span:hover,
-.CalendarDay__hovered_span {
+
+.CalendarDay__hovered_span:hover, .CalendarDay__hovered_span {
   background: var(--datePicker-picker-background);
   color: var(--datePicker-picker-text);
   border-color: #e4e7e7;
 }
 
 /* EXTERIOR INPUT STYLE */
+
 /* Container - placement */
+
 .DateRangePicker {
   height: 40px;
   margin: 0 5px 20px 5px;
@@ -40,9 +44,12 @@ is not yet selected. Edits the dates between your mouse and said date */
   border: none;
   width: 100%;
 }
+
 /* Container - visual */
+
 .DateRangePickerInput {
-  width: calc(100% - 10px); /* Just use padding? */
+  width: calc(100% - 10px);
+  /* Just use padding? */
   background-color: var(--datePicker-input-background);
   border-color: var(--datePicker-input-background);
   color: var(--datePicker-picker-text-input);
@@ -55,6 +62,7 @@ is not yet selected. Edits the dates between your mouse and said date */
 }
 
 /* Input Container */
+
 .DateInput {
   width: 97px;
   height: 38px;
@@ -63,7 +71,8 @@ is not yet selected. Edits the dates between your mouse and said date */
 }
 
 /* Actual Input Element */
-.DateInput > .DateInput_input {
+
+.DateInput>.DateInput_input {
   border-color: transparent;
   background-color: transparent;
   color: var(--datePicker-picker-text-input);
@@ -73,6 +82,7 @@ is not yet selected. Edits the dates between your mouse and said date */
 }
 
 /* PRESETS */
+
 .PresetDateRangePicker_panel {
   display: flex;
   justify-content: space-between;
@@ -106,9 +116,7 @@ is not yet selected. Edits the dates between your mouse and said date */
   font-size: 14px;
   cursor: pointer;
   appearance: none;
-
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
   background-position: calc(100% - 11px) 11px, calc(100% - 6px) calc(11px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;

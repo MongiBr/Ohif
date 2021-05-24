@@ -1,0 +1,21 @@
+.root-container {
+  background-color: rgb(240, 248, 248);
+}
+
+.navbar{
+  background-color: rgb(68, 185, 214);
+  height: 3rem;
+  width: 85rem;
+  align-content: center;
+  text-align: right;
+}
+.nav-link{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: blue;
+  place-items: center;
+  align-content: center;
+}
+.esp{
+ background-color:  rgb(68, 185, 214);
+}

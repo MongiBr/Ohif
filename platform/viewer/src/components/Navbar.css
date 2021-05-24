@@ -1,0 +1,32 @@
+#root{
+  background-color: aliceblue;
+}
+.root-container{
+  background-color: rgb(9, 10, 10);
+}
+.container_1{
+  align-items: center;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  color: aliceblue;
+}
+.badge{
+  background-color: grey;
+  border: gray;
+}
+.nav-link{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: blue;
+}
+.delete
+{
+background-color: red;
+}
+.edit{
+  margin-left: 58rem;
+  margin-right: 1rem;
+  background-color: rgb(16, 199, 56);
+  box-shadow: rgb(129, 243, 129);
+  
+}

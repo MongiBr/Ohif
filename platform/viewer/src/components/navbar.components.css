@@ -1,0 +1,28 @@
+.root{
+  margin-left: 0mm;
+  margin-right: 0mm;
+}
+.body{
+  background-image: url('https://ak.picdn.net/shutterstock/videos/15338566/thumb/9.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  font-family: 'Numans', sans-serif;
+  margin-left: 0mm;
+  margin-right: 0mm;
+  }
+  .root-container{
+    height: 100%;
+    margin-left: 0mm;
+  margin-right: 0mm;
+
+  }
+
+  .container{
+  height: 100%;
+  width: 150%;
+  align-content: center;
+  margin-left: 0mm;
+  margin-right: 0mm;
+  }

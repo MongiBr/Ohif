@@ -1,0 +1,12 @@
+.download-button button{
+  border: none;
+  background: none;
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(255,255,255);
+  cursor: pointer;
+}
+
+.download-button button:hover{
+  color: rgb(145, 185, 205);
+}

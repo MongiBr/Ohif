@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import ConnectedStudyList from './ConnectedStudyList';
 import useServer from '../customHooks/useServer';
 import OHIF from '@ohif/core';
@@ -27,11 +27,11 @@ function StudyListRouting({ match: routeMatch, location: routeLocation }) {
   if (appConfig.studyListFunctionsEnabled) {
     studyListFunctionsEnabled = appConfig.studyListFunctionsEnabled;
   }
-  return (
+  return (localStorage.getItem('token') ?
     <ConnectedStudyList
       filters={filters}
       studyListFunctionsEnabled={studyListFunctionsEnabled}
-    />
+    /> : <Redirect to='/login' />
   );
 }
 

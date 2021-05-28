@@ -81,6 +81,7 @@
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.1.0",
     "jest-junit": "^6.4.0",
+    "jspdf": "^2.3.1",
     "lerna": "^3.15.0",
     "lint-staged": "^9.0.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

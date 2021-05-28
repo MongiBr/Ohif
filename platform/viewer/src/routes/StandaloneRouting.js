@@ -7,6 +7,7 @@ import { extensionManager } from './../App.js';
 import ConnectedViewer from '../connectedComponents/ConnectedViewer';
 import ConnectedViewerRetrieveStudyData from '../connectedComponents/ConnectedViewerRetrieveStudyData';
 import NotFound from '../routes/NotFound';
+import { Redirect } from 'react-router';
 
 const { log, metadata, utils } = OHIF;
 const { studyMetadataManager } = utils;
@@ -162,22 +163,24 @@ class StandaloneRouting extends Component {
   }
 
   render() {
-    const message = this.state.error
-      ? `Error: ${JSON.stringify(this.state.error)}`
-      : 'Loading...';
-    if (this.state.error || this.state.loading) {
-      return <NotFound message={message} showGoBackButton={this.state.error} />;
-    }
+    if (localStorage.getItem('token')) {
+      const message = this.state.error
+        ? `Error: ${JSON.stringify(this.state.error)}`
+        : 'Loading...';
+      if (this.state.error || this.state.loading) {
+        return <NotFound message={message} showGoBackButton={this.state.error} />;
+      }
 
-    return this.state.studies ? (
-      <ConnectedViewer studies={this.state.studies} />
-    ) : (
-      <ConnectedViewerRetrieveStudyData
-        studyInstanceUIDs={this.state.studyInstanceUIDs}
-        seriesInstanceUIDs={this.state.seriesInstanceUIDs}
-        server={this.state.server}
-      />
-    );
+      return this.state.studies ? (
+        <ConnectedViewer studies={this.state.studies} />
+      ) : (
+        <ConnectedViewerRetrieveStudyData
+          studyInstanceUIDs={this.state.studyInstanceUIDs}
+          seriesInstanceUIDs={this.state.seriesInstanceUIDs}
+          server={this.state.server}
+        />
+      );
+    } else return <Redirect to='/login' />
   }
 }
 

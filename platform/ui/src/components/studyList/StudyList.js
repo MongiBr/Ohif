@@ -1,5 +1,4 @@
 import './StudyList.styl';
-
 import React from 'react';
 import classNames from 'classnames';
 import TableSearchFilter from './TableSearchFilter.js';

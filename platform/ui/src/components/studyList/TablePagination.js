@@ -2,8 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './PaginationArea.styl';
 import { withTranslation } from '../../contextProviders';
+import { Redirect } from 'react-router-dom';
 
 class TablePagination extends PureComponent {
+  state = {
+    navigate: false,
+  };
+
   static defaultProps = {
     pageOptions: [5, 10, 25, 50, 100],
     rowsPerPage: 25,
@@ -33,6 +38,11 @@ class TablePagination extends PureComponent {
     this.props.onRowsPerPageChange(parseInt(event.target.value));
   };
 
+  onLogoutHandler = () => {
+    localStorage.removeItem('token');
+    window.location.href = "/login";
+  };
+
   renderPaginationButtons() {
     return (
       <div className="col-xs-8 col-sm-9 col-md-9">
@@ -60,6 +70,7 @@ class TablePagination extends PureComponent {
                   {this.props.t('Next')}
                 </button>
               </li>
+              <button onClick={this.onLogoutHandler}>Logout</button>
             </ul>
           </React.Fragment>
         </div>
@@ -89,6 +100,11 @@ class TablePagination extends PureComponent {
   }
 
   render() {
+    const user = JSON.parse(localStorage.getItem('userData'));
+    const { navigate } = this.state;
+    if (navigate) {
+      return <Redirect to="/" push={true} />;
+    }
     return (
       <div className="pagination-area">
         <div className="rows-dropdown">{this.renderRowsPerPageDropdown()}</div>

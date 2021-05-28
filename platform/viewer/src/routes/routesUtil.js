@@ -13,6 +13,7 @@ const ViewerRouting = asyncComponent(() =>
   retryImport(() => import(/* webpackChunkName: "ViewerRouting" */ './ViewerRouting.js'))
 );
 
+
 const StudyListRouting = asyncComponent(() =>
   retryImport(() => import(
     /* webpackChunkName: "StudyListRouting" */ '../studylist/StudyListRouting.js'
@@ -27,26 +28,73 @@ const ViewerLocalFileData = asyncComponent(() =>
   retryImport(() => import(
     /* webpackChunkName: "ViewerLocalFileData" */ '../connectedComponents/ViewerLocalFileData.js'
   ))
+
 );
+
+const Login = asyncComponent(() =>
+  retryImport(() => import(
+    /* webpackChunkName: "Login" */ '../components/Connection/Login.js'
+  ))
+
+);
+
+const Register = asyncComponent(() =>
+  retryImport(() => import(
+    /* webpackChunkName: "Register" */ '../components/Connection/Register.js'
+  ))
+
+);
+
+const upload = asyncComponent(() =>
+  retryImport(() =>
+    import(/* webpackChunkName: "upload" */ '../connectedComponents/upload.js')
+  )
+);
+
+const AddPatient = asyncComponent(() =>
+  retryImport(() =>
+    import(
+      /* webpackChunkName: "AddPatient" */ '../connectedComponents/AddPatient/AddPatient.js'
+    )
+  )
+);
+
 
 const reload = () => window.location.reload();
 
 const ROUTES_DEF = {
   default: {
+    login: {
+      path: '/login', //done
+      component: Login,
+    },
+    register: {
+      path: '/register', //done
+      component: Register,
+    },
     viewer: {
-      path: '/viewer/:studyInstanceUIDs',
+      path: '/viewer/:studyInstanceUIDs',//done
       component: ViewerRouting,
     },
     standaloneViewer: {
-      path: '/viewer',
+      path: '/viewer',//done
       component: StandaloneRouting,
     },
     list: {
-      path: ['/studylist', '/'],
+      path: ['/studylist', '/'], //done
       component: StudyListRouting,
       condition: appConfig => {
         return appConfig.showStudyList;
       },
+    },
+    upload: {
+      path: '/upload',
+      component: upload,
+    },
+
+    AddPatient: {
+      path: '/AddPatient',
+      component: AddPatient,
     },
     local: {
       path: '/local',
@@ -55,7 +103,7 @@ const ROUTES_DEF = {
     IHEInvokeImageDisplay: {
       path: '/IHEInvokeImageDisplay',
       component: IHEInvokeImageDisplay
-    },
+    }
   },
   gcloud: {
     viewer: {

@@ -16,6 +16,8 @@ import moment from 'moment';
 import ConnectedDicomFilesUploader from '../googleCloud/ConnectedDicomFilesUploader';
 import ConnectedDicomStorePicker from '../googleCloud/ConnectedDicomStorePicker';
 import filesToStudies from '../lib/filesToStudies.js';
+import { downloadStudies } from './downloadStudies'
+import './StudyListRoute.css'
 
 // Contexts
 import UserManagerContext from '../context/UserManagerContext';
@@ -232,6 +234,13 @@ function StudyListRoute(props) {
             {t('StudyList')}
           </h1>
         </div>
+        <div className="download-button">
+          {(studies.length) &&
+            (<button onClick={(event) => {
+              event.preventDefault()
+              downloadStudies(studies)
+            }}>Download PDF</button>)
+          }</div>
         <div className="actions">
           {studyListFunctionsEnabled && healthCareApiButtons}
           {studyListFunctionsEnabled && (
@@ -427,7 +436,7 @@ function _sortStudies(studies, field, order) {
   });
 
   // Sort by field
-  sortedStudies.sort(function(a, b) {
+  sortedStudies.sort(function (a, b) {
     let fieldA = a[field];
     let fieldB = b[field];
     if (field === 'StudyDate') {

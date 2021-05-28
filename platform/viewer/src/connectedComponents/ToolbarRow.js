@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-
 import { MODULE_TYPES } from '@ohif/core';
 import {
   ExpandableToolMenu,
@@ -16,6 +15,7 @@ import { commandsManager, extensionManager } from './../App.js';
 
 import ConnectedCineDialog from './ConnectedCineDialog';
 import ConnectedLayoutButton from './ConnectedLayoutButton';
+import ConnectedDownloadButton from './ConnectedDownloadButton';
 import { withAppContext } from '../context/AppContext';
 
 class ToolbarRow extends Component {
@@ -192,6 +192,7 @@ class ToolbarRow extends Component {
             />
           </div>
           {buttonComponents}
+          <ConnectedDownloadButton studies={this.props.studies} />
           <ConnectedLayoutButton />
           <div
             className="pull-right m-t-1 rm-x-1"
